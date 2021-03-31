@@ -1,4 +1,5 @@
 import 'package:bmicalc/constants.dart';
+import 'package:bmicalc/screens/results.dart';
 import 'package:flutter/material.dart';
 // import 'package:bmicalc/constants.dart';
 import 'package:bmicalc/components/titleText.dart';
@@ -6,6 +7,8 @@ import 'package:bmicalc/components/genderRow.dart';
 import 'package:bmicalc/components/hwSlider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmicalc/components/calculateButton.dart';
+import 'package:bmicalc/calculations.dart';
+import 'results.dart';
 
 class BmiCalc extends StatefulWidget {
   @override
@@ -67,7 +70,22 @@ class _BmiCalcState extends State<BmiCalc> {
             ),
             CalcButton(
               maleSelected: maleSelected,
-              calculate: null,
+              calculate: () {
+                Calculations calc =
+                    Calculations(height: height, weight: weight);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Results(
+                      maleSelected: maleSelected,
+                      result: calc.calculateBMI(),
+                      resultText: calc.getResult(),
+                      description: calc.getInterpretation(),
+                    ),
+                  ),
+                );
+              },
+              text: "CALCULATE",
             )
           ],
         ),

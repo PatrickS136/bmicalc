@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:bmicalc/constants.dart';
 
 class GenderButton extends StatelessWidget {
   final dynamic genderIcon;
@@ -19,14 +20,14 @@ class GenderButton extends StatelessWidget {
           Icon(
             genderIcon,
             size: 40,
-            color: Colors.white,
+            color: grey,
           ),
           Text(
             text,
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: grey,
             ),
           ),
         ],

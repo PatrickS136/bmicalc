@@ -25,3 +25,15 @@ const kCButton = TextStyle(
   fontWeight: FontWeight.w800,
   color: grey,
 );
+
+const kResultsMale = TextStyle(
+  fontSize: 35,
+  fontWeight: FontWeight.w800,
+  color: darkBlue,
+);
+
+const kResultsFemale = TextStyle(
+  fontSize: 35,
+  fontWeight: FontWeight.w800,
+  color: darkRed,
+);

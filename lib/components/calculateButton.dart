@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class CalcButton extends StatelessWidget {
   final Function calculate;
   final bool maleSelected;
-  CalcButton({this.calculate, this.maleSelected});
+  final String text;
+  CalcButton({this.calculate, this.maleSelected, this.text});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,12 +14,12 @@ class CalcButton extends StatelessWidget {
       height: 70,
       child: TextButton(
         child: Text(
-          "CALCULATE",
+          this.text,
           style: kCButton,
         ),
         onPressed: calculate,
         style: TextButton.styleFrom(
-          backgroundColor: maleSelected ? darkBlue : darkRed,
+          backgroundColor: (maleSelected == true) ? darkBlue : darkRed,
         ),
       ),
     );
