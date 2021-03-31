@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:bmicalc/constants.dart';
+import 'package:flutter/material.dart';
+// import 'package:bmicalc/constants.dart';
 import 'package:bmicalc/components/titleText.dart';
 import 'package:bmicalc/components/genderRow.dart';
 import 'package:bmicalc/components/hwSlider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:bmicalc/components/calculateButton.dart';
 
 class BmiCalc extends StatefulWidget {
   @override
@@ -13,6 +15,7 @@ class BmiCalc extends StatefulWidget {
 class _BmiCalcState extends State<BmiCalc> {
   int height = 150;
   int weight = 75;
+  bool maleSelected = true;
   void setHeight(newValue) {
     setState(() {
       height = newValue.round();
@@ -27,10 +30,17 @@ class _BmiCalcState extends State<BmiCalc> {
     });
   }
 
+  void selectGender() {
+    setState(() {
+      (maleSelected) ? maleSelected = false : maleSelected = true;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        color: grey,
         padding: EdgeInsets.only(top: 70, left: 20, right: 60, bottom: 30),
         child: Column(
           children: [
@@ -38,13 +48,14 @@ class _BmiCalcState extends State<BmiCalc> {
             SizedBox(
               height: 20,
             ),
-            GenderRow(),
+            GenderRow(selectGender: selectGender),
             HWSlider(
               icon: FontAwesomeIcons.arrowsAltV,
               setValue: setHeight,
               value: height,
               min: 120,
               max: 220,
+              maleSelected: maleSelected,
             ),
             HWSlider(
               icon: FontAwesomeIcons.weight,
@@ -52,7 +63,12 @@ class _BmiCalcState extends State<BmiCalc> {
               value: weight,
               min: 35,
               max: 180,
+              maleSelected: maleSelected,
             ),
+            CalcButton(
+              maleSelected: maleSelected,
+              calculate: null,
+            )
           ],
         ),
       ),
