@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/basic.dart';
 import 'package:bmicalc/constants.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmicalc/components/genderButton.dart';
 import 'package:bmicalc/components/titleText.dart';
-
-import '../constants.dart';
+import 'package:bmicalc/components/genderRow.dart';
+import 'package:bmicalc/components/hwSlider.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BmiCalc extends StatefulWidget {
   @override
@@ -13,6 +11,22 @@ class BmiCalc extends StatefulWidget {
 }
 
 class _BmiCalcState extends State<BmiCalc> {
+  int height = 150;
+  int weight = 75;
+  void setHeight(newValue) {
+    setState(() {
+      height = newValue.round();
+      print(height);
+    });
+  }
+
+  void setWeight(newValue) {
+    setState(() {
+      weight = newValue.round();
+      print(weight);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,23 +38,20 @@ class _BmiCalcState extends State<BmiCalc> {
             SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                GenderButton(
-                  genderIcon: FontAwesomeIcons.mars,
-                  text: "Male",
-                  color: darkBlue,
-                ),
-                SizedBox(
-                  width: 20,
-                ),
-                GenderButton(
-                  color: darkRed,
-                  genderIcon: FontAwesomeIcons.venus,
-                  text: 'Female',
-                ),
-              ],
+            GenderRow(),
+            HWSlider(
+              icon: FontAwesomeIcons.arrowsAltV,
+              setValue: setHeight,
+              value: height,
+              min: 120,
+              max: 220,
+            ),
+            HWSlider(
+              icon: FontAwesomeIcons.weight,
+              setValue: setWeight,
+              value: weight,
+              min: 35,
+              max: 180,
             ),
           ],
         ),
