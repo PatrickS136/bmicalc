@@ -6,16 +6,16 @@ Screenshots below ran on the Nexus 6 virtual device, not yet tested on an iOS de
 
 <h2>Female</h2>
 <hr>
-<img src="screenshots/img1.png" alt="img1" width="400" />
+<img src="screenshots/ss1.png" alt="ss1" width="400" />
 <br>
 <h2>Female results</h2>
 <hr>
-<img src="screenshots/img2.png" alt="img2" width="400" />
+<img src="screenshots/ss2.png" alt="ss2" width="400" />
 <br>
 <h2>Male</h2>
 <hr>
-<img src="screenshots/img3.png" alt="img3" width="400" />
+<img src="screenshots/ss3.png" alt="ss3" width="400" />
 <br>
 <h2>Male results</h2>
 <hr>
-<img src="screenshots/img4.png" alt="img4" width="400" />
+<img src="screenshots/ss4.png" alt="ss4" width="400" />
